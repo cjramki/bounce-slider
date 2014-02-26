@@ -137,6 +137,11 @@
 				}, o.timeout);	
 			};
 			
+			//on mouseover stop the slide transition - clear the interval time
+			$('#first').on("mouseover",function(){
+				clearInterval(autoplay);
+			});
+			
 			/* helper function - set again interval after clicking an option in navigation */
 			var setIntervalAgain = function(){
 				if(o.auto){
@@ -146,6 +151,11 @@
 					}, o.timeout);		
 				}	
 			};
+			
+			//on mouseout again set interval to the slide transition.
+			$('#first').on("mouseout",function(){
+				autoplay = setIntervalAgain;
+			});
 			
 			/* helper function - set active element in bottom navigation */
 			var setActiveBottomElement = function(elementNumber){
